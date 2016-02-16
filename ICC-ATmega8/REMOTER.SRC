@@ -1,0 +1,10 @@
+[Files]
+..\src\uart.c
+..\src\app.c
+..\src\8bits_timer.c
+..\src\16bits_timer.c
+..\src\infrared_in.c
+..\src\infrared_out.c
+..\src\spi.c
+[Headers]
+[Documents]
