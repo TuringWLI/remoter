@@ -1,0 +1,5 @@
+# ignore svn folder
+/.svn
+
+# ignore all files in the svn
+.svn/*

@@ -1,0 +1,167 @@
+Revision: 18
+Author: yang
+Date: 17:26:13, 2016年1月28日
+Message:
+1, delete git folder
+----
+Deleted : /project/remoter/git
+
+Revision: 17
+Author: yang
+Date: 15:25:15, 2016年1月19日
+Message:
+1, use external 12M Hz crystal by fuse settings
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/uart.h
+
+Revision: 16
+Author: yang
+Date: 17:05:21, 2016年1月4日
+Message:
+1, enable ctc of timer2 to generate carrier waveform
+2, enable interrupt of ctc
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/8bits_timer.h
+Modified : /project/remoter/src/app.c
+
+Revision: 15
+Author: yang
+Date: 15:55:48, 2016年1月4日
+Message:
+1, input capture interrupt of timer1 can work
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/app.c
+
+Revision: 14
+Author: yang
+Date: 14:45:46, 2015年12月30日
+Message:
+1, external interrupt 0 is ok
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/app.c
+
+Revision: 13
+Author: yang
+Date: 16:27:47, 2015年12月17日
+Message:
+1, add git folder
+2, add a interface for print a value
+3, add some files
+4, note: the hex will not be varified
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/ICC-ATmega8/REMOTER.SRC
+Added : /project/remoter/git
+Added : /project/remoter/src/16bits_timer.c
+Added : /project/remoter/src/16bits_timer.h
+Added : /project/remoter/src/8bits_timer.c
+Added : /project/remoter/src/8bits_timer.h
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Added : /project/remoter/src/infrared_in.c
+Added : /project/remoter/src/infrared_in.h
+Added : /project/remoter/src/infrared_out.c
+Added : /project/remoter/src/infrared_out.h
+Added : /project/remoter/src/spi.c
+Added : /project/remoter/src/spi.h
+Modified : /project/remoter/src/uart.c
+Modified : /project/remoter/src/uart.h
+
+Revision: 12
+Author: yang
+Date: 16:15:53, 2015年12月2日
+Message:
+1, diable USART interrupt
+2, remove the delay in USART driver
+3, fix the bug that print function cant carriage return and line feed
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/uart.c
+
+Revision: 11
+Author: yang
+Date: 15:17:55, 2015年12月2日
+Message:
+1, add app version
+2, clean code
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/uart.c
+Modified : /project/remoter/src/uart.h
+
+Revision: 10
+Author: yang
+Date: 1:49:09, 2015年11月30日
+Message:
+1, add binary
+----
+Added : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+
+Revision: 9
+Author: yang
+Date: 1:48:33, 2015年11月30日
+Message:
+1, uart can work
+----
+Modified : /project/remoter/ICC-ATmega8/REMOTER.SRC
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/def.h
+Added : /project/remoter/src/uart.c
+Added : /project/remoter/src/uart.h
+
+Revision: 8
+Author: yang
+Date: 22:33:30, 2015年11月29日
+Message:
+1, build the code base for remoter
+2, this is a application for light on and off repeatedly
+----
+Added : /project/remoter/ICC-ATmega8/BACKUP
+Added : /project/remoter/ICC-ATmega8/Output
+Added : /project/remoter/ICC-ATmega8/REMOTER.SRC
+Added : /project/remoter/ICC-ATmega8/remoter.prj
+Added : /project/remoter/src/app.c
+Added : /project/remoter/src/app.h
+Added : /project/remoter/src/dbg.h
+Added : /project/remoter/src/def.h
+Added : /project/remoter/src/os.h
+
+Revision: 7
+Author: yang
+Date: 1:14:05, 2015年11月16日
+Message:
+
+----
+Added : /project/remoter/src
+
+Revision: 6
+Author: yang
+Date: 1:13:40, 2015年11月16日
+Message:
+
+----
+Added : /project/remoter/ICC-ATmega8
+
+Revision: 5
+Author: yang
+Date: 1:05:38, 2015年11月16日
+Message:
+
+----
+Added : /project/remoter
+
