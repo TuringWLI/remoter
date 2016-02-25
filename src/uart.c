@@ -143,6 +143,14 @@ void UART_PrintUInt(UINT16 num)
     UART_PutChar('\n');
 }
 
+int UART_Printf(const char *fmt, ...)
+{
+    return 0;
+}
+int UART_Scanf(const char *fmt, ...)
+{
+    return 0;
+}
 
 void UART_Init(void)
 {   

@@ -19,7 +19,10 @@
 
 #define WAVE_CHANGE_NUM	20
 
-void Timer1_Init(void);
+#define INPUT_CAPTURE_ENABLE 1
+#define INPUT_CAPTURE_DISABLE 0
+
+void Timer1_Init(BYTE ic);
 void External_Int0_Init(void);
 
 #endif /*_16_BITS_TIMER_H_*/

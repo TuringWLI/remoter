@@ -15,9 +15,9 @@
 /* #define RELEASE */
 
 #ifndef RELEASE
-#define ERROR_PRINT
+/* #define ERROR_PRINT */
 /* #define WARNING_PRINT */
-/* #define INFO_PRINT */
+ #define INFO_PRINT
 #else
 /* #define ERROR_PRINT */
 /* #define WARNING_PRINT */
@@ -42,11 +42,11 @@ void INFO_Print(const char *fmt, ...);
 #define INFO_Print(format,...)
 #endif
 
-/* #define UART_PRINT */
+ #define UART_PRINT
 /* #define IDE_PRINT */
 
 #if defined(UART_PRINT) 
-#define APP_Print UART_Printf
+#define APP_Print UART_Print
 #elif defined(IDE_PRINT) 
 #define APP_Print printf
 #else

@@ -3,6 +3,7 @@
 *
 * Routines to operate external interrupt 0 for starting the counting.
 * and routines to run 16-bit timer1 in M8 for measure the elapsed time of input wave.
+* and routines to run 16-bit timer1 in M8 for send the wave form
 * Currently supported:  Atmega8
 *
 * Copyright (c) 2005-2015 Whileloop Inc.
@@ -72,28 +73,30 @@ void Timer1_CaptureEvent_ISR(void)
     cnt++;
     UART_PrintUInt(cnt);
 #else
-	INT16 tcc1b;
+    INT16 tcc1b;
 
-	wave_time[cnt] = ICR1;
-	UART_PrintUInt(wave_time[cnt]);
-	
+    wave_time[cnt] = ICR1;
+    UART_PrintUInt(wave_time[cnt]);
+
     cnt++;
-	if( cnt >= WAVE_CHANGE_NUM )
-	{
-		TCCR1B &= 0xF8;/* Disable the input clock */
-		cnt = 0;
-	}
-	
-	TCNT1=0;/* Clear counter */
-	ICR1=0;/* Clear input capture register */
-	TIFR|=(1<<ICF1);/* Clear flag of input capture */
 
-	/* change the Input Capture Edge Select */
-	tcc1b = TCCR1B;
-	TCCR1B &= 0xBF;/* clear ICES1 */
-	tcc1b = ~tcc1b;
-	tcc1b &= 0x40;/* only ICES1 */
-	TCCR1B |= tcc1b;
+    /* Saving wave time finished and stop timer 1 */
+    if( cnt >= WAVE_CHANGE_NUM )
+    {
+        TCCR1B &= 0xF8;/* Disable the input clock */
+        cnt = 0;
+    }
+
+    TCNT1=0;/* Clear counter */
+    ICR1=0;/* Clear input capture register */
+    TIFR|=(1<<ICF1);/* Clear flag of input capture */
+
+    /* change the Input Capture Edge Select */
+    tcc1b = TCCR1B;
+    TCCR1B &= 0xBF;/* clear ICES1 */
+    tcc1b = ~tcc1b;
+    tcc1b &= 0x40;/* only ICES1 */
+    TCCR1B |= tcc1b;
 #endif
 }
 
@@ -104,16 +107,17 @@ void External_Int0_ISR(void)
     Alternatively, the flag can be cleared by writing a logical one to it */
     cnt++;
     UART_PrintUInt(cnt);
+    /* Enable Input Capture of timer 1 and start to count */
     /*Timer1_CaptureEvent_ISR();*/
 }
 
-/* Initialize the timer1 to operate the input capture */
-void Timer1_Init(void)
+/* Initialize the timer1 to operate the input capture for saving elapsed time or just counting for sending*/
+void Timer1_Init(BYTE ic)
 {
     asm("cli");    /* disable all interrupt */
 	
-	TCNT1=0;/* Clear counter */
-	ICR1=0;/* Clear input capture register */
+    TCNT1=0;/* Clear counter */
+    ICR1=0;/* Clear input capture register */
 
     /* Setup Input Captue Unit */
     TCCR1A=0x00;/* For Output Compare unit */
@@ -126,10 +130,9 @@ void Timer1_Init(void)
     /* TCCR1A and TCCR1B can define Mode of Operations, now is Normal Mode 
     in normal mode, the counting direction is always up and no counter clear is performed */
     
-#if 1    
-    TIMSK=(1<<TICIE1);
-    /*TICIE1(bit 5): Input Capture Interrupt Enable */
-#endif
+    if(INPUT_CAPTURE_ENABLE == ic)
+        TIMSK=(1<<TICIE1);
+        /*TICIE1(bit 5): Input Capture Interrupt Enable */
 
     TIFR=(1<<ICF1); 
     /*ICF1(bit 5): clear the flag which will be set when a capture event occurs on the ICP1 pin 
