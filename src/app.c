@@ -1,5 +1,5 @@
 /***************************************************************************
-* remoter.c                                                    Version 0.0.1
+* app.c                                                    Version 0.0.1
 *
 * Routines to run remoter main function.
 * Currently supported:  Atmega8
@@ -64,7 +64,29 @@ void INFO_Print(const char *fmt, ...)
 }
 #endif
 
+#pragma interrupt_handler External_Int1_ISR:3
+void External_Int1_ISR(void)
+{
 
+}
+
+/* Initialize the external interrupt to occur for low level which indicates a key pressed */
+void External_Int1_Init(void)
+{
+
+}
+
+#ifdef REMOTER_EVB
+void LED_TurnOn()
+{
+    PORTD &= ~(1 << PD5);
+}
+
+void LED_TurnOff()
+{
+    PORTD |= (1 << PD5);
+}
+#endif
 /* Before the download the code by ISP and run it
  It is necessary to set the Fuse Bits to config some parameters 
  Now the code running with 12M Hz external crystal 
@@ -89,7 +111,7 @@ void main(void)
     UINT16 key_test = KEY_RELEASED;
     BYTE key_status = KEY_UNPRESSED;
     UART_Init();
-    
+#ifdef SUEY_EVB    
     /* all pins are for output, except PD2(INT0)(key1) and PD3(key2) and PD4(key3) and PD5(key4)
     DDRD=0xc3;*/
     DDRD = 0xff;
@@ -101,7 +123,7 @@ void main(void)
 
     /* all pins are for output, except PB0(ICP1), PB4(key5) and PB5(key6)
     DDRB=0xce;*/
-    DDRB = 0xff;/* In face, the PB6(X1) and PB7(X2) are input when using the external crystal */
+    DDRB = 0xff;/* In fact, the PB6(X1) and PB7(X2) are input when using the external crystal */
     DDRB &= ~(1 << PB0);
     DDRB &= ~(1 << PB4);
     DDRB &= ~(1 << PB5);
@@ -109,16 +131,42 @@ void main(void)
     
     /* all pins are for output */
     DDRC=0xff;PORTC=0xff;
+#endif
+
+#ifdef REMOTER_EVB
+    DDRD = 0xff;
+    PORTD = 0xff;
+    
+    for(i = 3; i > 0; i--)
+    { 
+        LED_TurnOn();
+        delay_1ms(100);
+        LED_TurnOff();
+        delay_1ms(100);
+    }
+#endif
 
     UART_Print(APPLICATION_NAME);
     UART_Print(PLATFORM);
     UART_Print(VENDOR);
     UART_Print(APPLICATION_VERSITON);   
-                               
-    External_Int0_Init();
+
+    /* enter learning status and wait for the start of wave */   
+    while(1)/*  just for testing */
+    {
+        capture_pnt = 0;
+        External_Int0_Init();/* Timer1_CaptureStart in int0's ISR and it disble itself */
+        delay_1ms(10000);
+        Timer1_CaptureStop();
+        
+        if(capture_pnt)/* Print all data which captured */
+            for(i = 0; i < WAVE_CHANGE_NUM; i++)
+            {
+                UART_PrintUInt(wave_time[0][i]);
+            }
+    }
     
-    Timer1_Init(INPUT_CAPTURE_ENABLE);
-    
+        
     /* To generate the carrier waveform */     
     Timer2_Init();
     

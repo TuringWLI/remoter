@@ -1,5 +1,5 @@
 /***************************************************************************
-* remoter.c                                                    Version 0.0.1
+* uart.c                                                    Version 0.0.1
 *
 * Routines to run UART function.
 * Currently supported:  Atmega8
@@ -22,6 +22,7 @@
 #include "dbg.h"
 #include "uart.h"
 
+/* This is not a accurate timer, just for delay a while */
 void delay_1ms(UINT16 i)
 {  
     UINT16 j;

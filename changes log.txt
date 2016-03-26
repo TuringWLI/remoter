@@ -1,3 +1,113 @@
+Revision: 34
+Author: yang
+Date: 2016年3月26日 16:54:16
+Message:
+1, make sure that learning works
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/uart.c
+
+Revision: 33
+Author: yang
+Date: 2016年3月26日 15:26:25
+Message:
+1, implennt the T1 count
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+
+Revision: 32
+Author: yang
+Date: 2016年3月26日 15:10:05
+Message:
+1, add interface of externl interrupt 1 for key pressed
+2, add interface for LED
+3, add an app sample for learning
+5, record the time in T1 ISR
+4, clean code 
+6, add some comments
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/uart.c
+
+Revision: 31
+Author: yang
+Date: 2016年3月23日 17:42:52
+Message:
+1, make the carry wave 38kHz for 12M and 8M crystal
+2, add a led flash for remoter evb
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/8bits_timer.h
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/uart.h
+
+Revision: 30
+Author: yang
+Date: 2016年3月22日 15:47:16
+Message:
+1, update rework list
+----
+Modified : /project/remoter/sch/rework list.txt
+
+Revision: 29
+Author: yang
+Date: 2016年3月22日 11:09:46
+Message:
+1， add hardware schematic
+----
+Added : /project/remoter/sch/rework list.txt
+Added : /project/remoter/sch/schematic.pdf
+
+Revision: 28
+Author: yang
+Date: 2016年3月22日 10:56:07
+Message:
+schematic
+----
+Added : /project/remoter/sch
+
+Revision: 24
+Author: yang
+Date: 2016年3月9日 15:27:30
+Message:
+1, add release note.txt
+----
+Added : /project/remoter/release note.txt
+
+Revision: 20
+Author: yang
+Date: 2016年2月25日 11:19:16
+Message:
+1, enable the key board
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/dbg.h
+Modified : /project/remoter/src/uart.c
+
+Revision: 19
+Author: yang
+Date: 2016年1月28日 17:57:38
+Message:
+1, add change log for git
+----
+Added : /project/remoter/changes log.txt
+
+
 Revision: 18
 Author: yang
 Date: 17:26:13, 2016年1月28日

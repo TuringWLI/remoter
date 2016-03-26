@@ -27,6 +27,9 @@
 #define TIMER2_COM_NON_PWM_CLEAR 2
 #define TIMER2_COM_NON_PWM_SET 3
 
+/* The formula to calculate the frequency from the datasheet */
+#define CARRY_WAVE_WITH_12MCRYSTAL_WITHOUT_PRESCALING 0x9D /*38KhZ*/
+#define CARRY_WAVE_WITH_8MCRYSTAL_WITHOUT_PRESCALING 0x68 /*38KhZ*/
 
 void Timer2_Init(void);
 

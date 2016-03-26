@@ -12,6 +12,9 @@
 #ifndef _APP_H_
 #define _APP_H_
 
+#define SUEY_EVB
+//#define REMOTER_EVB
+
 #define APP_LEARNING_REMOTER
 
 #if defined(APP_LEARNING_REMOTER) 
@@ -19,6 +22,7 @@
 #endif
 #define PLATFORM								"Atmega8 development platform\n"
 #define VENDOR								"Whileloop, Inc.\n"
+
 /*
 version x._._._ means the x time release for customer
 version _.x._._ means the x time release for re-stucture or big integration
@@ -32,6 +36,9 @@ version _._._.x means the x time release for bug fix
 /*About the key board*/
 #define KEY_PRESSED 0
 #define KEY_UNPRESSED 1
+
+#define FUNC_KEY_NUM 1 /* function key number */
+#define TTL_KEY_NUM 6 /* total key number, function key and record key */
 
 #define KEY_RELEASED (((1 << PD2) |(1 << PD3) | (1 << PD4) | (1 << PD5) ) <<8 ) | ((1 << PB4) | (1 << PB5) )
 #define KEY_1_ ((1 << PD2) <<8 )
