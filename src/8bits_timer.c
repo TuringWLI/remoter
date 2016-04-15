@@ -28,8 +28,30 @@ void Timer2_CTC_ISR(void)
 {  
 }
 
+/* If pause = 1, close waveform output, if pause = 0, open waveform output */
+void Timer2_CTCPause(BYTE pause)
+{
+    if(pause)
+    {
+        TCCR2 &= 0xCF;/* Clear COM */
+        LED_TurnOn();
+    }
+    else
+    {
+        TCCR2 |= (TIMER2_COM_NON_PWM_TOGGLE<<COM20);
+        LED_TurnOff();
+    }
+}
+
+void Timer2_CTCStop(void)
+{
+    TCCR2 &= 0xF8;/* Disable the input clock and Timer 1 stop*/
+    TCCR2 &= 0xCF;/* Clear COM */
+}
+
+/* To generate the carrier waveform */     
 /* Initialize the timer2 to operate the output compare in CTC mode */
-void Timer2_Init(void)
+void Timer2_CTCStart(void)
 {
     asm("cli");    /* disable all interrupt */
 	

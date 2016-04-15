@@ -31,7 +31,9 @@
 #define CARRY_WAVE_WITH_12MCRYSTAL_WITHOUT_PRESCALING 0x9D /*38KhZ*/
 #define CARRY_WAVE_WITH_8MCRYSTAL_WITHOUT_PRESCALING 0x68 /*38KhZ*/
 
-void Timer2_Init(void);
+void Timer2_CTCPause(BYTE pause);
+void Timer2_CTCStop(void);
+void Timer2_CTCStart(void);
 
 
 #endif /*_8_BITS_TIMER_H_*/

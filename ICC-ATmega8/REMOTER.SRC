@@ -6,5 +6,6 @@
 ..\src\infrared_in.c
 ..\src\infrared_out.c
 ..\src\spi.c
+..\src\SST25VF.c
 [Headers]
 [Documents]

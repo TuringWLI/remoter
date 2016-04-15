@@ -14,9 +14,15 @@
 
 /*this clock is the system clock
 if it is 1000000, the workable baud is 4800
+if it is 8000000, the workable baud is 9600
 if use the 12MHz external crystal, the workable baud is from 4800~57600 */
+#ifdef SUEY_EVB
 #define CLOCK 12000000 /* System clock */
 #define BAUD 57600 /* Baud rate */
+#else
+#define CLOCK 8000000 /* System clock */
+#define BAUD 9600 /* Baud rate */
+#endif
 void delay_1ms(UINT16 i);
 
 void UART_Init(void);

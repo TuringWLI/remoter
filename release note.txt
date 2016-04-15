@@ -1,0 +1,21 @@
+Project name: Remoter
+Project version: 1.1.0.0
+Release time: 4.5.2016
+Directory: svn://172.17.11.94/project/remoter
+Function: Record and playback remote control signals
+Feature: None
+Change: None
+Relative project name and version: None
+
+User guide:None
+
+Known issues:
+1. S1 key cant work
+1. SST Flash access
+2. power mode
+
+Note:
+1. When enter REC, it must get the waveform input or it will wait all time until RESET.
+2. Only support 38kHz frequency of carried waveform.
+3. Waveform lasts no more than 500ms.
+4. Waveform contains no more than 100 periods.

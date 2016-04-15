@@ -1,3 +1,284 @@
+Revision: 56
+Author: yang
+Date: 2016年4月15日 11:14:29
+Message:
+Product name: WL0R0
+Product version: 2.0.1.0
+Release time: 4.15.2016
+Directory: svn://172.17.11.94/product/e-tech
+Function: Record and playback remote control signals and save in Flash
+Feature: SST Flash access
+Change: None
+Relative project name and version: 
+Remoter v 1.2.0.0
+
+User guide:
+"remoter state machine.vsd"
+
+Known issues:
+1. S3 key cant work
+2. power mode
+
+Note:
+1. When enter REC, it must get the waveform input or it will wait all time until RESET.
+2. Only support 38kHz frequency of carried waveform.
+3. Waveform lasts no more than 500ms.
+4. Waveform contains no more than 100 periods.
+----
+Modified : /product/release note.txt
+Modified : /project/remoter/release note.txt
+
+Revision: 55
+Author: yang
+Date: 2016年4月15日 11:07:44
+Message:
+Project name: Remoter
+Project version: 1.2.0.0
+Release time: 4.15.2016
+Directory: svn://172.17.11.94/project/remoter
+Function: Record and playback remote control signals and save in Flash
+Feature: SST Flash access
+Change: None
+Relative project name and version: None
+
+User guide:None
+
+Known issues:
+1. S3 key cant work
+2. power mode
+
+Note:
+1. When enter REC, it must get the waveform input or it will wait all time until RESET.
+2. Only support 38kHz frequency of carried waveform.
+3. Waveform lasts no more than 500ms.
+4. Waveform contains no more than 100 periods.
+----
+Modified : /project/remoter/release note.txt
+
+Revision: 54
+Author: yang
+Date: 2016年4月15日 10:47:46
+Message:
+1, add some comment and clean code
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+
+Revision: 53
+Author: yang
+Date: 2016年4月14日 14:28:56
+Message:
+1, it seems the flash access and timer2 output compare can exist at the same time now
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/app.h
+
+Revision: 52
+Author: yang
+Date: 2016年4月13日 13:06:38
+Message:
+1, add spi deinit
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/dbg.h
+Modified : /project/remoter/src/spi.c
+Modified : /project/remoter/src/spi.h
+
+Revision: 51
+Author: yang
+Date: 2016年4月11日 18:09:28
+Message:
+1, use flash to record data
+2, use INFO_Value_Print
+3, update key board driver for record data
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/dbg.h
+Modified : /project/remoter/src/16bits_timer.h
+
+Revision: 50
+Author: yang
+Date: 2016年4月8日 18:19:30
+Message:
+1， update rework list
+----
+Modified : /project/remoter/sch/rework list.txt
+
+Revision: 49
+Author: yang
+Date: 2016年4月8日 18:17:10
+Message:
+1, Flash access OK
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/SST25VF.h
+
+Revision: 48
+Author: yang
+Date: 2016年4月8日 14:54:23
+Message:
+1, coding for sst25vf done
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/spi.c
+Modified : /project/remoter/src/spi.h
+Modified : /project/remoter/src/SST25VF.h
+
+Revision: 47
+Author: yang
+Date: 2016年4月6日 18:32:16
+Message:
+1, detect sst25vf ok
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/spi.c
+Modified : /project/remoter/src/spi.h
+Modified : /project/remoter/src/SST25VF.h
+Modified : /project/remoter/ICC-ATmega8/REMOTER.SRC
+
+Revision: 43
+Author: yang
+Date: 2016年4月5日 14:42:06
+Message:
+Project name: Remoter
+Project version: 1.1.0.0
+Release time: 4.5.2016
+Directory: svn://172.17.11.94/project/remoter
+Function: Record and playback remote control signals
+Feature: None
+Change: None
+Relative project name and version: None
+
+User guide:None
+
+Known issues:
+1. S1 key cant work
+1. SST Flash access
+2. power mode
+
+Note:
+1. When enter REC, it must get the waveform input or it will wait all time until RESET.
+2. Only support 38kHz frequency of carried waveform.
+3. Waveform lasts no more than 500ms.
+4. Waveform contains no more than 100 periods.
+----
+Modified : /project/remoter/release note.txt
+
+Revision: 42
+Author: yang
+Date: 2016年4月5日 11:30:15
+Message:
+1, make sure the LED off after sending
+2, learning and sending are both OK
+3, add flash driver but cant work
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Added : /project/remoter/src/SST25VF.c
+Modified : /project/remoter/src/app.h
+Added : /project/remoter/src/SST25VF.h
+Modified : /project/remoter/src/16bits_timer.c
+
+Revision: 41
+Author: yang
+Date: 2016年4月1日 14:09:35
+Message:
+1， update rework list and changes log.txt
+----
+Modified : /project/remoter/sch/rework list.txt
+Modified : /project/remoter/changes log.txt
+
+
+Revision: 40
+Author: yang
+Date: 2016年4月1日 11:41:30
+Message:
+1, add led flash when send signal
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+
+Revision: 39
+Author: yang
+Date: 2016年3月31日 13:52:34
+Message:
+1, make the uart work on remoter evb
+2, make the key board work on remoter evb
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/dbg.h
+Modified : /project/remoter/src/uart.h
+
+Revision: 38
+Author: yang
+Date: 2016年3月30日 14:50:59
+Message:
+1, complete coding for learning and sending
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/8bits_timer.c
+Modified : /project/remoter/src/8bits_timer.h
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+
+Revision: 37
+Author: yang
+Date: 2016年3月29日 16:05:52
+Message:
+1, enable release version
+2, add status control global
+3, change the record array
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/16bits_timer.c
+Modified : /project/remoter/src/16bits_timer.h
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+Modified : /project/remoter/src/dbg.h
+
+Revision: 36
+Author: yang
+Date: 2016年3月28日 18:06:55
+Message:
+1, support the remoter evb without key interrupt
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+
+Revision: 35
+Author: yang
+Date: 2016年3月28日 17:10:23
+Message:
+1, support key interrupt for the next version of remoter evb
+----
+Modified : /project/remoter/ICC-ATmega8/Output/REMOTER.hex
+Modified : /project/remoter/src/app.c
+Modified : /project/remoter/src/app.h
+
 Revision: 34
 Author: yang
 Date: 2016年3月26日 16:54:16

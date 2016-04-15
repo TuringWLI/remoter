@@ -12,7 +12,7 @@
 #ifndef _DBG_H_
 #define _DBG_H_
 
-/* #define RELEASE */
+/*#define RELEASE*/
 
 #ifndef RELEASE
 /* #define ERROR_PRINT */
@@ -36,10 +36,12 @@ void WAR_Print(const char *fmt, ...);
 void ERR_Print(const char *fmt, ...);
 void WAR_Print(const char *fmt, ...);
 void INFO_Print(const char *fmt, ...);
+void INFO_Value_Print(UINT16);
 #else
 #define ERR_Print(format,...)
 #define WAR_Print(format,...)
 #define INFO_Print(format,...)
+#define INFO_Value_Print(value)
 #endif
 
  #define UART_PRINT
