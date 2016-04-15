@@ -1,0 +1,10 @@
+2016.3.7
+1. re-direct the socket of ISP on PCB
+2. add the vendor name and release version on PCB
+3. replace the 88PA with Atmega8 or 8L or 8A
+4. make the LED and function key on the same side
+5. make the key can trigger interrupt
+6. input the HS38 to T1 input capture
+7. give a VCC and ground to UART
+8. REC and RST mark error
+9. use /SS pin for SPI of SST25VF
